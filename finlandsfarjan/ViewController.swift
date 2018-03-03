@@ -61,8 +61,26 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
+        perform(#selector(start), with: nil, afterDelay: 4)
+    }
+    
+    @objc
+    fileprivate func start() {
         self.audioPlayer.play()
+        
+        let scroller = UILabel(frame: CGRect.zero)
+        scroller.text = "Welcome to Jumalauta 18 Years party 24.-26.8.2018 at Hauho in potentially sunny Finland! We have cabins and good times! If you're in Sweden, take the dang titular finlandsfärjan. Greets to everyone at Instanssi 2018 and everyone who's been at the Jumalauta party before! See you there! This remake was made by Ylvaes, Tohtori Kannabispiikki, and Paasikivi-Kekkosen Linja. The 2006 original was made by Anteeksi, Maitotuote, Saksan Perussanasto, and Ylvaes."
+        scroller.font = UIFont.init(name: "Superclarendon-Black", size: 36)
+        scroller.backgroundColor = .clear
+        scroller.textColor = UIColor(red: 0.7, green: 0.7, blue: 1.0, alpha: 1.0)
+        scroller.sizeToFit()
+        self.view.addSubview(scroller)
+        
+        scroller.frame = CGRect(x: self.view.bounds.size.width, y: 300, width: scroller.bounds.size.width, height: scroller.bounds.size.height)
+        UIView.animate(withDuration: 45, delay: 0, options: [UIViewAnimationOptions.repeat, UIViewAnimationOptions.curveLinear], animations: {
+            scroller.frame = CGRect(x: -scroller.bounds.size.width, y: 350, width: scroller.bounds.size.width, height: scroller.bounds.size.height)
+        })
     }
     
     fileprivate func createScene() -> SCNScene {
