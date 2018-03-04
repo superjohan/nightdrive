@@ -62,11 +62,6 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        perform(#selector(start), with: nil, afterDelay: 4)
-    }
-    
-    @objc
-    fileprivate func start() {
         self.audioPlayer.play()
         
         let scroller = UILabel(frame: CGRect.zero)
@@ -82,7 +77,7 @@ class ViewController: UIViewController {
             scroller.frame = CGRect(x: -scroller.bounds.size.width, y: self.view.bounds.size.height - 10, width: scroller.bounds.size.width, height: scroller.bounds.size.height)
         })
     }
-    
+        
     fileprivate func createScene() -> SCNScene {
         let scene = SCNScene()
         scene.background.contents = UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0)
