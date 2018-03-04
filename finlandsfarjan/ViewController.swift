@@ -77,9 +77,9 @@ class ViewController: UIViewController {
         scroller.sizeToFit()
         self.view.addSubview(scroller)
         
-        scroller.frame = CGRect(x: self.view.bounds.size.width, y: 300, width: scroller.bounds.size.width, height: scroller.bounds.size.height)
+        scroller.frame = CGRect(x: self.view.bounds.size.width, y: self.view.bounds.size.height - scroller.bounds.size.height - 10, width: scroller.bounds.size.width, height: scroller.bounds.size.height)
         UIView.animate(withDuration: 45, delay: 0, options: [UIViewAnimationOptions.repeat, UIViewAnimationOptions.curveLinear], animations: {
-            scroller.frame = CGRect(x: -scroller.bounds.size.width, y: 350, width: scroller.bounds.size.width, height: scroller.bounds.size.height)
+            scroller.frame = CGRect(x: -scroller.bounds.size.width, y: self.view.bounds.size.height - 10, width: scroller.bounds.size.width, height: scroller.bounds.size.height)
         })
     }
     
