@@ -67,9 +67,11 @@ class NightDriveViewController: UIViewController {
         self.startButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.startButton.backgroundColor = UIColor.black
 
+        self.logo1View.contentMode = .scaleAspectFit
         self.logo1View.isHidden = true
+        self.logo2View.contentMode = .scaleAspectFit
         self.logo2View.isHidden = true
-        
+
         self.qtFoolingBgView.backgroundColor = UIColor(white: 0.1, alpha: 1.0)
 
         super.init(nibName: nil, bundle: nil)
