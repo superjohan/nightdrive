@@ -61,8 +61,8 @@ class NightDriveViewController: UIViewController {
                 "presented at jml18v postmortem sauna 2018\n" +
                 "\n" +
         "tap anywhere to start"
-        self.startButton = UIButton.init(type: UIButtonType.custom)
-        self.startButton.setTitle(startButtonText, for: UIControlState.normal)
+        self.startButton = UIButton.init(type: UIButton.ButtonType.custom)
+        self.startButton.setTitle(startButtonText, for: UIControl.State.normal)
         self.startButton.titleLabel?.numberOfLines = 0
         self.startButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.startButton.backgroundColor = UIColor.black
@@ -74,7 +74,7 @@ class NightDriveViewController: UIViewController {
 
         super.init(nibName: nil, bundle: nil)
 
-        self.startButton.addTarget(self, action: #selector(startButtonTouched), for: UIControlEvents.touchUpInside)
+        self.startButton.addTarget(self, action: #selector(startButtonTouched), for: UIControl.Event.touchUpInside)
 
         self.view.addSubview(self.qtFoolingBgView)
         self.view.addSubview(self.sceneView)
@@ -87,7 +87,7 @@ class NightDriveViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prefersHomeIndicatorAutoHidden() -> Bool {
+    override var prefersHomeIndicatorAutoHidden: Bool {
         return true
     }
     
@@ -211,7 +211,7 @@ class NightDriveViewController: UIViewController {
 
         perform(#selector(startBoatAnimation), with: nil, afterDelay: 3)
 
-        UIView.animate(withDuration: 70, delay: 0, options: [UIViewAnimationOptions.curveLinear], animations: {
+        UIView.animate(withDuration: 70, delay: 0, options: [UIView.AnimationOptions.curveLinear], animations: {
             self.scroller.frame = CGRect(x: -self.scroller.bounds.size.width, y: self.view.bounds.size.height - self.scroller.bounds.size.height - 15, width: self.scroller.bounds.size.width, height: self.scroller.bounds.size.height)
         })
     }
